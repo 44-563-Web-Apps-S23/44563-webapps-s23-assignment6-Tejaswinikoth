@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+    <title>Tejaswini Kotha</title>
+
+<h2>Painter entry Tejaswini Kotha</h2>
+
+
+</script>
+    <form>
+      <label for="hidden-painter">The hidden painter name:</label>
+      <input type="password" id="hidden-painter" value="Monet" />
+
+      <br />
+
+      <label for="guess-painter">Guess the painter:</label>
+      <input type="text" id="guess-painter" />
+
+      <br />
+
+      <input type="button" value="Check the guess" onclick="checkPainter()" />
+
+      <br />
+
+      <div id="result"></div>
+    </form>
+
+    <script>
+      let good = 0;
+      let oops = 0;
+
+      function checkPainter() {
+        const hiddenPainterInput = document.getElementById("hidden-painter");
+        const guessPainterInput = document.getElementById("guess-painter");
+
+        if (hiddenPainterInput.value === guessPainterInput.value) {
+          good++;
+          alert("You got it right!");
+        } else {
+          oops++;
+          alert("Sorry!");
+        }
+
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = `Right: ${good} | Wrong: ${oops}`;
+      }
+    </script>
+  </body>
+</html>
+
+
+</body>
+</html> 
