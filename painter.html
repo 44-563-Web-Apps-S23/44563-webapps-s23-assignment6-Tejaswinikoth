@@ -69,5 +69,63 @@
         }
       }
    </script>
-  </body>
-</html>
+    <form>
+      <label>
+        <input type="radio" name="operation" id="mean" value="mean" onClick="chooseOp()">
+        Average
+      </label>
+      <br>
+      <label>
+        <input type="radio" name="operation" id="maximum" value="maximum" onClick="chooseOp()">
+        Max
+      </label>
+      <br>
+      <label>
+        <input type="radio" name="operation" id="minimum" value="minimum" onClick="chooseOp()">
+        Min
+      </label>
+      <br>
+      <label>
+        Base value:
+        <input type="number" id="base" value="0" onChange="chooseOp()">
+      </label>
+      <br>
+      <label>
+        Conversion value:
+        <input type="number" id="conversion" value="0" onChange="chooseOp()">
+      </label>
+    </form>
+    <p id="result"></p>
+     <script>
+       function chooseOp() {
+         
+         var base = parseFloat(document.getElementById("base").value);
+         var conversion = parseFloat(document.getElementById("conversion").value);
+         var operation;
+         if (document.getElementById("mean").checked) {
+           operation = "mean";
+         } else if (document.getElementById("maximum").checked) {
+           operation = "maximum";
+         } else if (document.getElementById("minimum").checked) {
+           operation = "minimum";
+         }
+         var result;
+         switch (operation) {
+           case "mean":
+             result = (base + conversion) / 2;
+             break;
+           case "maximum":
+             result = Math.max(base, conversion);
+             break;
+           case "minimum":
+             result = Math.min(base, conversion);
+             break;
+           default:
+             result = "Error: no operation selected";
+         }
+
+         document.getElementById("result").innerHTML = `${operation} of ${base} and ${conversion} is ${result}`;
+       }
+     </script>
+    </body>
+   </html>
