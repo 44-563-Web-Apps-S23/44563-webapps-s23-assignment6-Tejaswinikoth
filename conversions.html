@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <title>Conversion Calculator</title>
+ 
+<body>
+
+<h2>shows currency conversions by TEJASWINI KOTHA</h2>
+    <label for="base-amount">Enter base amount:</label>
+	<input type="number" id="base-amount" value="50"><br><br>
+
+	<label for="conversion-rate">Enter the conversion rate:</label>
+	<input type="number" id="conversion-rate" value="35"><br><br>
+
+	<button onclick="convert()">Show conversions</button><br><br>
+<div id="conversions"></div>
+    <script>
+		function convert() {
+			const base = document.getElementById("base-amount").value;
+			const conversion = document.getElementById("conversion-rate").value;
+			let toShow = "";
+			for (let i = 1; i <= 5; i++) {
+				const value = base * Math.pow(2, i-1);
+				const convertedValue = value * conversion;
+				toShow += `${value} is ${convertedValue}; `;
+			}
+			document.getElementById("conversions").innerHTML = "Conversions are: " + toShow;
+		}
+	</script>
+</body>
+</html> 
